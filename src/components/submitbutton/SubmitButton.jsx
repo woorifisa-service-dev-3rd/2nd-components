@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react"
-import SpinBox from "../spinbox/SpinBox";
+import SpinBox from "./SpinBox.jsx";
 
 
 // <SubmitButton color={'rgb(51,51,255)'} callback={testFunction} message={'로그인'} />
-const SubmitButton = ({color, callback, data, message}) => {
+const SubmitButton = ({color, callback, data, message, width}) => {
   // 색
   const sub = color.slice(4, -1);
   const [red, green, blue] = sub.split(",").map(Number);
-  const hoveredColor = `rgb(${Math.floor(red/1.5)},${Math.floor(green/1.5)},${Math.floor(blue/1.5)})`
+  const hoveredColor = `rgb(${Math.floor(red/1.2)},${Math.floor(green/1.2)},${Math.floor(blue/1.2)})`
   const mouseDownColor = `rgb(${Math.floor(red/3)},${Math.floor(green/3)},${Math.floor(blue/3)})`
-  
+
   // 메세지
   const buttonMessage = message? message : "SUBMIT";
 
@@ -17,6 +17,9 @@ const SubmitButton = ({color, callback, data, message}) => {
   const [disabled, setDisabled] = useState(false);
   const [isHovered, setHover] = useState(false);
   const [buttonColor, setColor] = useState(color);
+
+  const buttonWidth = width? width : '100%'
+  const height = '3rem';
 
   // 클릭 시 실행될 함수
   const onClick = async () => {
@@ -40,10 +43,10 @@ const SubmitButton = ({color, callback, data, message}) => {
   },[isHovered])
 
   return (
-    <div className='button-container w-32 h-16'>
+    <div className='button-container' style={{width: buttonWidth, height: height}}>
       <button id='submit-button' 
-      className="border-transparent w-28 h-12 rounded-xl disabled:opacity-50 relative text-white text-xl font-bold" 
-      style={{backgroundColor: buttonColor}} 
+      className="border-transparent rounded-xl disabled:opacity-50 relative text-white text-xl font-bold w-full h-full" 
+      style={{backgroundColor: buttonColor}}
       onClick={onClick} 
       onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
       onMouseDown={() => setColor(mouseDownColor)} onMouseUp={() => setColor(color)}

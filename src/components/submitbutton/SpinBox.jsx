@@ -1,5 +1,3 @@
-import './SpinBox.css'
-
 const SpinBox = ({color}) => {
 
   return (
