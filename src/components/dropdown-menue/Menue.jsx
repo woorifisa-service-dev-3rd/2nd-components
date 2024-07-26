@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DropDown } from "./DropDown";
 import Icon from "./Icon";
 const Menue = ({ icons }) => {
-  const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(false);
   const closeHandler = () => setOpen(!isOpen);
   return (
     <div>
