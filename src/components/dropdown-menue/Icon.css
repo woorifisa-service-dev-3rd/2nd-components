@@ -1,0 +1,29 @@
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  border: none;
+  color: black;
+  text-decoration: none;
+}
+img:not([src]) {
+  visibility: hidden;
+}
+
+.image-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 10%;
+}
+.image-box:hover {
+  background-color: #d8d8d8;
+}
+
+.image-name {
+  font-size: 10px;
+}
